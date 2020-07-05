@@ -1,5 +1,5 @@
 <?php
-// echo phpinfo();
+echo phpinfo();
 // echo "Hello"
 $conn = new mysqli("172.19.0.2", "root", "root", "first_demo");
 // Check connection
