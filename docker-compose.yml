@@ -1,0 +1,28 @@
+version: '2'
+services:
+  website:
+    container_name: php74
+    image: test:php_img
+    build:
+      context: ./
+    volumes:
+      - /home/sbhuser14/Desktop/lamp/test/:/var/www/html/
+    ports:
+      - 8000:80
+    depends_on:
+      - mysql     
+  mysql:
+        image: mysql
+        container_name: mysql-server-80
+        command: --default-authentication-plugin=mysql_native_password
+#        working_dir: /application
+        volumes:
+          - .:/application
+        restart: always
+        environment:
+          - MYSQL_ROOT_PASSWORD=root
+          - MYSQL_DATABASE=first_demo
+          - MYSQL_USER=root
+          - MYSQL_PASSWORD=root
+        ports:
+          - "8082:3306"
